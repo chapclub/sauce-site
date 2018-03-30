@@ -4,7 +4,6 @@ export const validateDrink = (drink) => {
 };
 
 export const validatePumps = (pumps) => {
-  console.dir(pumps);
   return pumps.reduce((acc, pump) => {
     if (!pump) return false;
     const { id, volume, density, name } = pump;
@@ -38,8 +37,11 @@ export const setDrink = (drink) => {
 export const makeDrink = (drink) => {
   if (drink) {
     return fetch('/drink/make', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({ drink }),
-      cache: 'no-cache',
       method: 'POST'
     }).then(res => {
       if (res.status === 400) return null;

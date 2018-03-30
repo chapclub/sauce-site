@@ -18,6 +18,17 @@ class App extends Component {
         </div>
         <Controls dispatch={this.props.dispatch} />
 
+        {
+          this.props.error ?
+            <div className="AppHeader">
+              <h4>Big booboo my dude</h4>
+              <pre>
+                <code>{JSON.stringify(this.props.error, null, 2)}</code>
+              </pre>
+            </div> :
+            <div />
+        }
+
         <div>
           <pre>
             <code>{JSON.stringify(this.props, null, 2)}</code>
@@ -41,11 +52,13 @@ const mapStateToProps = state => {
     error: null
   };
 
+  console.dir(state.error);
+
   return {
     remoteStatus,
     lastAction,
     defaultDrink,
-    error
+    error: error ? error.message : null
   };
 };
 

@@ -34,8 +34,7 @@ export const state = (state = DEFAULT_STATE, action) => {
     case SET_DRINK:
       return {
         ...state,
-        lastAction: action,
-        error: null
+        lastAction: action
       };
 
     case ERROR:
