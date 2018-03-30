@@ -1,0 +1,1 @@
+{ "name": "Oscar Sauce", "type": "mixed", "pumps": [ { "id": 0, "volume": 45, "density": 1, "name": "Fireball" }, { "id": 1, "volume": 45, "density": 1, "name": "Orange Juice" }, { "id": 0, "volume": 45, "density": 1, "name": "Fireball" }, { "id": 1, "volume": 45, "density": 1, "name": "Orange Juice" } ] }
