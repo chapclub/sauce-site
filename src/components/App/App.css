@@ -1,23 +1,14 @@
 .AppContent {
   margin: 2rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
 }
 
 h1 {
-  font-size: 10em;
-  line-height: 4rem;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
   padding: 0;
   font-style: italic;
-  color: #fff;
-}
-
-h3 {
-  color: #ddd;
 }
 
 .AppHeader {
@@ -25,8 +16,8 @@ h3 {
   padding-left: 2rem;
   padding-right: 2rem;
   background-color: #111;
+  color: #fff;
 }
-
 
 .AppFooter {
   text-align: center;

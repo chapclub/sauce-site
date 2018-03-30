@@ -1,13 +1,16 @@
-export const validateDrink = ({ name, type, pumps }) => {
+export const validateDrink = (drink) => {
+  const { name, type, pumps } = drink;
   return name && type && pumps && validatePumps(pumps);
 };
 
 export const validatePumps = (pumps) => {
-  return pumps.reduce((pump, acc) => {
+  console.dir(pumps);
+  return pumps.reduce((acc, pump) => {
     if (!pump) return false;
     const { id, volume, density, name } = pump;
 
-    return acc && id && volume && density && name;
+    const val = acc && volume && density && name;
+    return val;
   }, true);
 };
 
@@ -20,9 +23,12 @@ export const getStatus = () => {
 
 export const setDrink = (drink) => {
   return fetch('/drink/set', {
-    body: JSON.stringify({ drink }),
-    cache: 'no-cache',
-    method: 'POST'
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify({ drink: drink })
   }).then(res => {
     if (res.status === 400) return null;
     return getStatus();
