@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Dropdown from 'react-dropdown';
-import { connect } from 'react-redux';
 
 import 'react-dropdown/style.css';
 import './Controls.css';
@@ -46,9 +45,11 @@ class Controls extends Component {
   };
 
   onSubmit = () => {
-    const { dispatch } = this.props;
-    const { selectedDrink } = this.state;
-    dispatch( actions.setDrink(selectedDrink.value) );
+    if (this.state.selectedDrink) {
+      const { dispatch } = this.props;
+      const { selectedDrink } = this.state;
+      dispatch( actions.makeDrink(selectedDrink.value) );
+    }
   };
 
   render() {
